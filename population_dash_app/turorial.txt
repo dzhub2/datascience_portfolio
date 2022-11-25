@@ -1,0 +1,5 @@
+run:
+
+pipreqs ./
+
+to create requirements.txt file
