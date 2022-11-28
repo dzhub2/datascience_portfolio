@@ -1,8 +1,8 @@
 # <ins>Data Science Portfolio</ins>
 
-* [Animated Scatter Plot App](#scatter-plot)<br>
-* [Classification - Titanic Kaggle Competetion](#titanic)<br>
-* [Regression - Bike Sharing Kaggle Competetion](#bike)<br>
+* [Animated Scatter Plot App](#animated-scatter-plot-app)<br>
+* [Classification - Titanic Kaggle Competetion](#classification---titanic-kaggle-competetion)<br>
+* [Regression - Bike Sharing Kaggle Competetion](#regression---bike-sharing-kaggle-competetion)<br>
 
 ## Animated Scatter Plot App
 
