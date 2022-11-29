@@ -25,6 +25,6 @@ On this [website](https://dzhub2.pythonanywhere.com), I deployed an animated sca
 
 ## Song Lyrics Predictor
 
-[Here](), I implemented a web scrapper collecting song lyrics from different artists to build a Bag of Words model. For any user input-sentence, the program predicts which artist most likely used this sentence in one of their lyrics.
+[Here](https://github.com/dzhub2/datascience_portfolio/blob/master/lyric_classification/lyric_classification.ipynb), I implemented a web scrapper collecting song lyrics from different artists to build a Bag of Words NLP model. For any user input-sentence, the program predicts which artist most likely used this sentence in one of their lyrics.
 
 <ins>Methods:</ins> Web scrapping (BeautifulSoup), RegEx, NLP vectorizer, Classification, Hyperparameter tuning
