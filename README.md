@@ -3,6 +3,7 @@
 * [Animated Scatter Plot App](#animated-scatter-plot-app)<br>
 * [Classification - Titanic Kaggle Competetion](#classification---titanic-kaggle-competetion)<br>
 * [Regression - Bike Sharing Kaggle Competetion](#regression---bike-sharing-kaggle-competetion)<br>
+* [Song Lyrics Predictor](#song-lyrics-predictor)<br>
 
 ## Animated Scatter Plot App
 
@@ -22,3 +23,8 @@ On this [website](https://dzhub2.pythonanywhere.com), I deployed an animated sca
 
 <ins>Methods:</ins> Exploratory Data Analysis, Feature Engineering, ML Regression Models
 
+## Song Lyrics Predictor
+
+[Here](), I implemented a web scrapper collecting song lyrics from different artists to build a Bag of Words model. For any user input-sentence, the program predicts which artist most likely used this sentence in one of their lyrics.
+
+<ins>Methods:</ins> Web scrapping (BeautifulSoup), RegEx, NLP vectorizer, Classification, Hyperparameter tuning
