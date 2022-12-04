@@ -11,6 +11,8 @@
 
 On this [AWS EC2 Server](http://ec2-18-194-162-57.eu-central-1.compute.amazonaws.com/public/dashboard/2c90b9eb-2f04-44e1-8e4f-27ada1177b57) I deployed a Metabase Dashboard by connecting it to a PostgreSQL database using AWS RDS. The data was taken from the Microsoft Azure Northwind database, located in [this](https://github.com/dzhub2/datascience_portfolio/tree/master/sql_northwind) folder.
 
+<ins>Methods:</ins> AWS EC2 and RDS, PostgreSQL, Metabase, Dashboarding, SQLAlchemy
+
 ## Animated Scatter Plot App
 
 On this [website](https://dzhub2.pythonanywhere.com), I deployed an animated scatter plot app. [Here](https://github.com/dzhub2/datascience_portfolio/blob/master/population_dash_app/animated_scatter_by_population.ipynb) is the notebook version, which can be run locally without the website.
