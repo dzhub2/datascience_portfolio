@@ -1,9 +1,15 @@
 # <ins>Data Science Portfolio</ins>
 
+* [AWS Cloud Dashboard](#aws-cloud-dashboard)<br>
 * [Animated Scatter Plot App](#animated-scatter-plot-app)<br>
 * [Classification - Titanic Kaggle Competetion](#classification---titanic-kaggle-competetion)<br>
 * [Regression - Bike Sharing Kaggle Competetion](#regression---bike-sharing-kaggle-competetion)<br>
 * [Song Lyrics Predictor](#song-lyrics-predictor)<br>
+
+
+## AWS Cloud Dashboard
+
+On this [AWS EC2 Server](http://ec2-18-194-162-57.eu-central-1.compute.amazonaws.com/public/dashboard/2c90b9eb-2f04-44e1-8e4f-27ada1177b57) I deployed a Metabase Dashboard by connecting it to a PostgreSQL database using AWS RDS. The data was taken from the Microsoft Azure Northwind database, located in [this](https://github.com/dzhub2/datascience_portfolio/tree/master/sql_northwind) folder.
 
 ## Animated Scatter Plot App
 
@@ -28,3 +34,5 @@ On this [website](https://dzhub2.pythonanywhere.com), I deployed an animated sca
 [Here](https://github.com/dzhub2/datascience_portfolio/blob/master/lyric_classification/lyric_classification.ipynb), I implemented a web scrapper collecting song lyrics from different artists to build a Bag of Words NLP model. For any user input-sentence, the program predicts which artist most likely used this sentence in one of their lyrics.
 
 <ins>Methods:</ins> Web scrapping (BeautifulSoup), RegEx, NLP vectorizer, Classification, Hyperparameter tuning
+
+
