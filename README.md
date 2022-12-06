@@ -1,6 +1,7 @@
 # <ins>Data Science Portfolio</ins>
 
 * [AWS Cloud Dashboard](#aws-cloud-dashboard)<br>
+* [Docker Pipeline (in development)](#docker-pipeline-(in-development))<br>
 * [Animated Scatter Plot App](#animated-scatter-plot-app)<br>
 * [Classification - Titanic Kaggle Competetion](#classification---titanic-kaggle-competetion)<br>
 * [Regression - Bike Sharing Kaggle Competetion](#regression---bike-sharing-kaggle-competetion)<br>
@@ -9,9 +10,15 @@
 
 ## AWS Cloud Dashboard
 
-On this [AWS EC2 Server](http://ec2-18-194-162-57.eu-central-1.compute.amazonaws.com/public/dashboard/2c90b9eb-2f04-44e1-8e4f-27ada1177b57) I deployed a Metabase Dashboard by connecting it to a PostgreSQL database using AWS RDS. The data was taken from the Microsoft Azure Northwind database, located in [this](https://github.com/dzhub2/datascience_portfolio/tree/master/sql_northwind) folder.
+On this [AWS EC2 Server](http://ec2-18-194-162-57.eu-central-1.compute.amazonaws.com/public/dashboard/2c90b9eb-2f04-44e1-8e4f-27ada1177b57), I deployed a Metabase Dashboard by connecting it to a PostgreSQL database using AWS RDS. The data was taken from the Microsoft Azure Northwind database, located in [this](https://github.com/dzhub2/datascience_portfolio/tree/master/sql_northwind) folder.
 
 <ins>Methods:</ins> AWS EC2 and RDS, PostgreSQL, Metabase, Dashboarding, SQLAlchemy
+
+## Docker Pipeline (in development)
+
+In this Docker Image (TBD), I built an ETL pipeline consisting of a Stock Market API, MongoDB, sentiment analysis and PostgreSQL to determine the most important stock market news of the day.
+
+<ins>Methods:</ins> Docker, API, MongoDB, PostgreSQL, Sentiment analysis
 
 ## Animated Scatter Plot App
 
