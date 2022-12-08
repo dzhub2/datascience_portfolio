@@ -7,6 +7,8 @@ import pandas as pd
 from datetime import date, timedelta
 import logging
 import pymongo
+from pytickersymbols import PyTickerSymbols
+import time
 
 ## alpha vantage stock market API functions
 
@@ -30,8 +32,11 @@ def get_short_term_intraday(base_url, symbol):
             'datatype': 'json',
             'outputsize': 'full',
             'apikey': API_KEY}
+    try:
+        response = requests.get(base_url, params=params)
+    except requests.exceptions.RequestException as e:
+        raise SystemExit(e)
 
-    response = requests.get(base_url, params=params)
     response_dict = response.json()
     _, header = response.json()
     return header, response_dict
@@ -45,7 +50,11 @@ def get_long_term_intraday(base_url, symbol):
             'adjusted': 'true',
             'apikey': API_KEY}
 
-    response = requests.get(base_url, params=params)
+    try:
+        response = requests.get(base_url, params=params)
+    except requests.exceptions.RequestException as e:
+        raise SystemExit(e)
+
     #Save CSV to file
     with open('./test.csv', 'wb') as file:
         file.write(response.content)
@@ -53,7 +62,7 @@ def get_long_term_intraday(base_url, symbol):
     df.set_index('time', inplace=True) #Time-series index
     return df
 
-def get_yesterdays_data(df):
+def extract_yesterdays_stock_data(df):
     # get yesterdays stock
     yesterday = date.today() - timedelta(days=1)
     df = df[df.index.date==yesterday]
@@ -70,24 +79,45 @@ def get_the_news(base_url, tickers):
 
     response = requests.get(base_url, params=params)
     data = response.json()
-    return data
+    my_error_code = 0
+    if ('Error Message' in data) or ('Invalid' in list(data.values())[0]) or ('Thank you for using Alpha Vantage' in list(data.values())[0]):
+        #print(data)
+        my_error_code = 1 # the API doesn't return an Exception for these cases -> hand code it
+    return data, my_error_code
 
-# get most recent stock news for a ticker
-base_url = 'https://www.alphavantage.co/query?'
-tickers = ['TSLA']
+# get all DAX 40 stock symbols to put them into the API
+stock_data = PyTickerSymbols()
+german_stocks = list(stock_data.get_stocks_by_index('DAX'))
 
-data = get_the_news(base_url, tickers) 
+dax_symbols = []
+for i in range(len(german_stocks)):
+    dax_symbols.append(german_stocks[i]['symbol'])
 
 # set up connection to mongoDB
-client = pymongo.MongoClient(host="mongo", port=27017) #my_mongodb container defined in .yml file
+client = pymongo.MongoClient(host="mongo", port=27017) #mongo container defined in .yml file
 db = client.stock_news #stock_news = DB to be created
 db.stock_news_col.drop() #delete collection if it already exists
 
-#store data in mongoDB
+#get data and store data in mongoDB
 logging.info('Storing in mongoDB!')
 
+base_url = 'https://www.alphavantage.co/query?'
 data_dict = {}
 
-for item in range(int(data['items'])): #gives the number of requested items, 200 max.
-    data_dict.update({'ticker': tickers[0], 'news': data['feed'][item]['summary']})
-    db.stock_news_col.insert_one(data_dict.copy()) #set the collection name here
+# use custom symbol list, in case DAX symbols create problems in the API (e.g. finds wrong stock)
+# these are the 13 largest NASDAQ stocks, measured by market cap
+nasdaq_13 = ['AAPL','MSFT','GOOG','AMZN','TSLA','NVDA','META','PEP','ASML','GEN','AZN','COST','AVGO'] 
+nasdaq_5 = ['AAPL','GOOG','AMZN','TSLA','NVDA'] 
+
+while True:
+    for ticker in nasdaq_5:
+        data, error_code = get_the_news(base_url, ticker) # get data for this ticker
+
+        if error_code == 0: # only save data if API returned news for this symbol
+            for item in range(int(data['items'])): #gives the number of requested items, 200 max.
+                data_dict.update({'ticker': ticker, 'news': data['feed'][item]['summary']})
+                db.stock_news_col.insert_one(data_dict.copy()) #set the collection name here
+        
+        # time.sleep(20) # have to wait, because the free API only allows 5 calls per minute
+        
+    time.sleep(60*60) # update the news once every hour.

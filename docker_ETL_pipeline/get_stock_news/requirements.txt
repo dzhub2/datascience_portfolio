@@ -1,0 +1,4 @@
+pandas==1.4.2
+pymongo==4.3.3
+pytickersymbols==1.13.0
+requests==2.27.1
