@@ -1,0 +1,4 @@
+pandas==1.4.2
+pymongo==4.3.3
+SQLAlchemy==1.4.44
+vaderSentiment==3.3.2

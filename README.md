@@ -1,7 +1,7 @@
 # <ins>Data Science Portfolio</ins>
 
 * [AWS Cloud Dashboard](#aws-cloud-dashboard)<br>
-* [Docker ETL Pipeline (in development)](#docker-etl-pipeline-(in-development))<br>
+* [Docker ETL Pipeline - Stock News Analysis](#docker-etl-pipeline---stock-news-analysis)<br>
 * [Animated Scatter Plot App](#animated-scatter-plot-app)<br>
 * [Classification - Titanic Kaggle Competetion](#classification---titanic-kaggle-competetion)<br>
 * [Regression - Bike Sharing Kaggle Competetion](#regression---bike-sharing-kaggle-competetion)<br>
@@ -14,11 +14,11 @@ On this [AWS EC2 Server](http://ec2-18-194-162-57.eu-central-1.compute.amazonaws
 
 <ins>Methods:</ins> AWS EC2 and RDS, PostgreSQL, Metabase, Dashboarding, SQLAlchemy
 
-## Docker ETL Pipeline (in development)
+## Docker ETL Pipeline - Stock News Analysis
 
-In this Docker Image (TBD), I built an ETL pipeline consisting of a Stock Market API, MongoDB, sentiment analysis and PostgreSQL to determine the most important stock market news of the day.
+In this [folder](https://github.com/dzhub2/datascience_portfolio/tree/master/docker_ETL_pipeline), I built a Docker ETL pipeline consisting of a Stock Market API, MongoDB, sentiment analysis and PostgreSQL to determine the most popular stock based on news headlines. Further, the intraday chart of this stock will be displayed inside the Bash.
 
-<ins>Methods:</ins> Docker, API, MongoDB, PostgreSQL, Sentiment analysis
+<ins>Methods:</ins> Docker, ETL pipeline, API, MongoDB, PostgreSQL, Sentiment analysis
 
 ## Animated Scatter Plot App
 

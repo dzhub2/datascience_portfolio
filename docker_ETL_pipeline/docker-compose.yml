@@ -1,0 +1,49 @@
+version: "3"
+
+services:
+  data_stream:
+    build: ./get_stock_news
+    volumes:
+      - ./get_stock_news/:/app
+    depends_on:
+      - mongo
+    env_file:
+      - key.env
+    #environment:
+    #  - ALPHAVANTAGE_API_KEY #don't specify = grab it from host env vars
+
+  mongo:
+    image: mongo:latest
+    command: mongod --port 27017
+    ports:
+      - 27017:27017
+
+  postgres:
+    image: postgres:latest
+    ports:
+      - 5555:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=stock_news
+
+  etl:
+    build: ./etl
+    volumes:
+      - ./etl/:/app
+    depends_on:
+      - mongo
+      - postgres
+
+  plot:
+    build: ./plot
+    volumes:
+      - ./plot/:/app
+    env_file:
+      - key.env
+    #environment:
+    #  - ALPHAVANTAGE_API_KEY #don't specify = grab it from host env vars
+    depends_on:
+      - postgres
+      - mongo
+      - etl

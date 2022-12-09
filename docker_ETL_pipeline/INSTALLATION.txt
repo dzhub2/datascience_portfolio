@@ -1,0 +1,19 @@
+1)Follow this documentation to install Docker on your system: 
+
+https://docs.docker.com/get-docker/
+
+2) From the root of this folder, open a Bash and run the following commands:
+
+docker compose build
+
+docker compose up
+
+##############################################################
+
+Debugging:
+
+1) Make sure your Docker environment is properly set up by running:
+
+docker run hello-world
+
+2) If the default API key doesn't work, get a free key from: https://www.alphavantage.co/. Then, replace the default key inside "key.env" with your own key.

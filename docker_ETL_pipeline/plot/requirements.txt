@@ -1,0 +1,4 @@
+pandas==1.4.2
+plotext==5.2.8
+requests==2.27.1
+SQLAlchemy==1.4.44

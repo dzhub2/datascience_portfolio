@@ -1,8 +1,8 @@
-
+""" 
+Use the Alpha Vantage Stock Market API to get stock market news for specified equities.
+"""
 import requests
 import os
-API_KEY = os.getenv('ALPHAVANTAGE_API_KEY') # API key stored in environmental variable, else pass it here
-
 import pandas as pd
 from datetime import date, timedelta
 import logging
@@ -10,6 +10,7 @@ import pymongo
 from pytickersymbols import PyTickerSymbols
 import time
 
+API_KEY = os.getenv('ALPHAVANTAGE_API_KEY') # API key stored in environmental variable, else pass it here
 ## alpha vantage stock market API functions
 
 def convert_json_to_pandas(header, response_dict):
@@ -25,7 +26,8 @@ def convert_json_to_pandas(header, response_dict):
     return df
 
 def get_short_term_intraday(base_url, symbol):
-    # short term intraday data (1-2 months)
+    """ Get short term, 1-2 months, intraday data."""
+
     params = {'function': 'TIME_SERIES_INTRADAY',
             'symbol': symbol,
             'interval': '1min',
@@ -42,7 +44,8 @@ def get_short_term_intraday(base_url, symbol):
     return header, response_dict
 
 def get_long_term_intraday(base_url, symbol):
-    # long term intraday data (trailing 2 years) - ONLY USES CSV
+    """ Get long term, 2 years, intraday data. Outputs only CSV."""
+
     params = {'function': 'TIME_SERIES_INTRADAY_EXTENDED',
             'symbol': symbol,
             'interval': '1min',
@@ -69,7 +72,8 @@ def extract_yesterdays_stock_data(df):
     return df
 
 def get_the_news(base_url, tickers):
-    # get current news
+    """ Returns the stock market news from Alpha Vantage API"""
+
     params = {'function': 'NEWS_SENTIMENT',
             'tickers': tickers,
             'sort': 'latest',
@@ -99,13 +103,14 @@ db = client.stock_news #stock_news = DB to be created
 db.stock_news_col.drop() #delete collection if it already exists
 
 #get data and store data in mongoDB
-logging.info('Storing in mongoDB!')
+logging.info('Storing in MongoDB!')
 
 base_url = 'https://www.alphavantage.co/query?'
 data_dict = {}
 
-# use custom symbol list, in case DAX symbols create problems in the API (e.g. finds wrong stock)
-# these are the 13 largest NASDAQ stocks, measured by market cap
+# use custom symbol list, in case DAX symbols create problems in the API (e.g. finds wrong stock):
+
+# these are the 13 (5) largest NASDAQ stocks, measured by market cap
 nasdaq_13 = ['AAPL','MSFT','GOOG','AMZN','TSLA','NVDA','META','PEP','ASML','GEN','AZN','COST','AVGO'] 
 nasdaq_5 = ['AAPL','GOOG','AMZN','TSLA','NVDA'] 
 
@@ -117,7 +122,5 @@ while True:
             for item in range(int(data['items'])): #gives the number of requested items, 200 max.
                 data_dict.update({'ticker': ticker, 'news': data['feed'][item]['summary']})
                 db.stock_news_col.insert_one(data_dict.copy()) #set the collection name here
-        
-        # time.sleep(20) # have to wait, because the free API only allows 5 calls per minute
-        
+                
     time.sleep(60*60) # update the news once every hour.

@@ -1,0 +1,6 @@
+FROM python:3.8-slim
+WORKDIR /app
+COPY ./. /app
+RUN pip install -r requirements.txt
+RUN pip install psycopg2-binary # is not automatically being put into requirements
+CMD ["python","etl.py"]
