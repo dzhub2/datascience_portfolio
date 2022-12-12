@@ -3,8 +3,8 @@
 * [AWS Cloud Dashboard](#aws-cloud-dashboard)<br>
 * [Docker ETL Pipeline - Stock News Analysis](#docker-etl-pipeline---stock-news-analysis)<br>
 * [Animated Scatter Plot App](#animated-scatter-plot-app)<br>
-* [Classification - Titanic Kaggle Competetion](#classification---titanic-kaggle-competetion)<br>
-* [Regression - Bike Sharing Kaggle Competetion](#regression---bike-sharing-kaggle-competetion)<br>
+* [Classification - Titanic Kaggle Competition](#classification---titanic-kaggle-competition)<br>
+* [Regression - Bike Sharing Kaggle Competition](#regression---bike-sharing-kaggle-competition)<br>
 * [Song Lyrics Predictor](#song-lyrics-predictor)<br>
 
 
@@ -26,13 +26,13 @@ On this [website](https://dzhub2.pythonanywhere.com), I deployed an animated sca
 
 <ins>Methods:</ins> Plotly Express, Dash, Pandas
 
-## Classification - Titanic Kaggle Competetion
+## Classification - Titanic Kaggle Competition
 
 [Here](https://github.com/dzhub2/datascience_portfolio/blob/master/kaggle_titanic/titanic_submission.ipynb), I built a Machine Learning classification model to predict the survival of passengers on the Titanic. This project is part of a [Kaggle competition](https://www.kaggle.com/competitions/titanic/overview/description) and received a score of 0.78.
 
 <ins>Methods:</ins> Feature Engineering, XGBoost
 
-## Regression - Bike Sharing Kaggle Competetion
+## Regression - Bike Sharing Kaggle Competition
 
 [Here](https://github.com/dzhub2/datascience_portfolio/blob/master/kaggle_bike_rental/bike_project.ipynb), I built several Machine Learning regression models to forecast the use of a city bikeshare system. This project is part of a [Kaggle competition](https://www.kaggle.com/competitions/bike-sharing-demand/overview) and received a score of 0.40 (Top 7%).
 
