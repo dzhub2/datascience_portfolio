@@ -5,6 +5,7 @@
 * [Animated Scatter Plot App](#animated-scatter-plot-app)<br>
 * [Classification - Titanic Kaggle Competition](#classification---titanic-kaggle-competition)<br>
 * [Regression - Bike Sharing Kaggle Competition](#regression---bike-sharing-kaggle-competition)<br>
+* [Time-Series Climate Analysis](#time-series-climate-analysis)<br>
 * [Song Lyrics Predictor](#song-lyrics-predictor)<br>
 
 
@@ -37,6 +38,13 @@ On this [website](https://dzhub2.pythonanywhere.com), I deployed an animated sca
 [Here](https://github.com/dzhub2/datascience_portfolio/blob/master/kaggle_bike_rental/bike_project.ipynb), I built several Machine Learning regression models to forecast the use of a city bikeshare system. This project is part of a [Kaggle competition](https://www.kaggle.com/competitions/bike-sharing-demand/overview) and received a score of 0.40 (Top 7%).
 
 <ins>Methods:</ins> Exploratory Data Analysis, Feature Engineering, ML Regression Models
+
+## Time-Series Climate Analysis
+
+[Here](https://github.com/dzhub2/datascience_portfolio/blob/master/time_series/time_series.ipynb), I perform a time-series analysis on temperature data for Berlin-Marzahn.
+
+<ins>Methods:</ins> Time-series, Autocorrelation, ARIMA
+
 
 ## Song Lyrics Predictor
 
