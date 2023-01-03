@@ -6,6 +6,7 @@
 * [Classification - Titanic Kaggle Competition](#classification---titanic-kaggle-competition)<br>
 * [Regression - Bike Sharing Kaggle Competition](#regression---bike-sharing-kaggle-competition)<br>
 * [Time-Series Climate Analysis](#time-series-climate-analysis)<br>
+* [Supermarket Markov Simulation](#supermarket-markov-simulation)<br>
 * [Song Lyrics Predictor](#song-lyrics-predictor)<br>
 
 
@@ -45,6 +46,11 @@ On this [website](https://dzhub2.pythonanywhere.com), I deployed an animated sca
 
 <ins>Methods:</ins> Time-series, Autocorrelation, ARIMA
 
+## Supermarket Markov Simulation
+
+[Here](https://github.com/dzhub2/datascience_portfolio/blob/master/markov_chain/), I build a Markov Chain Monte Carlo model to predict the customer behaviour inside a supermarket using OOP.
+
+<ins>Methods:</ins> Object oriented programming, Markov Chain, Monte Carlo
 
 ## Song Lyrics Predictor
 
